@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>2</p>
+</body>
+<script>
+var arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+
+function getDaysInOneMonth(year, month, day) {
+    month = parseInt(month, 10);
+    month -= 1;
+    var d = new Date(year, month, day);
+    console.log(d);
+    return d.getDay();
+}
+
+console.log(getDaysInOneMonth(2017, 5, 1));
+console.log(arr[getDaysInOneMonth(2017, 5, 1)]);
+</script>
+
+</html>

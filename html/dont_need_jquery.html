@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>you dont need jquery</title>
+</head>
+
+<body>
+    <p id="box">你好</p>
+    <p class="jav">你好2</p>
+    <ul>
+        <li>这是1</li>
+        <li>这是2</li>
+        <li class="dd">这是3</li>
+        <li>这是4</li>
+        <li>这是5</li>
+        <li class="ee">这是6</li>
+        <li>这是7</li>
+    </ul>
+</body>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script>
+var box = document.querySelector('#box');
+console.log(box);
+
+var box2 = document.querySelector('p.jav');
+console.log(box2);
+
+console.log($('li').index($('.dd')));
+console.log($('li').index($('.ee')));
+
+console.log(Array.prototype.indexOf.call(document.querySelectorAll('li'), document.querySelector('li.dd')));
+console.log(Array);
+console.log(Array.prototype);
+
+
+</script>
+
+</html>

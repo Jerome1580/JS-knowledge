@@ -1,0 +1,65 @@
+/*通用样式*/
+body{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	-webkit-overflow-scrolling:touch;/*流畅滚动*/
+}
+div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,form,
+fieldset, input, blockquote,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+h1, h2, h3, h4, h5, h6, strong, th{
+    font-size: 1.0em;
+    font-weight: normal;
+    font-style: normal;
+}
+article, aside, details, figcaption, figure,footer, header, menu, nav, section {
+    display: block;
+}
+/*取消聚焦边框*/
+input,button,select,textarea {
+    outline:none;
+    border:none;
+}
+a,button,input,optgroup,select,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+textarea{
+    padding-left:10px;
+}
+input[type='button']{
+    cursor:pointer;
+    text-align:center;
+	padding-left:0;
+}
+input{
+    padding-left:10px;
+    /*padding-right:10px;*/
+}
+input[type='button'],input[type='submit'],input[type='reset']{
+    -webkit-appearance: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+}
+ul {
+    list-style: none;
+}
+b{
+    font-weight:normal;
+}
+/*浮动相关*/
+.left   {float:left;}
+.right  {float:right;}
+.clear  {clear:both;}

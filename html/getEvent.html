@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <div>ffsfs</div>
+    </div>
+</body>
+
+</html>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/shike.js"></script>
+<script>
+   $('#box').on('click',dv);
+
+   function dv(){
+   	console.log(arguments.callee.caller);
+
+   }
+
+   // shike.changeSelected($('#box'),'click',dv)
+</script>

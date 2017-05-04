@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <li id="box"><li>eweqqwewq</li></li> -->
+    <li>
+        <p class="date-day">25</p>
+        <div class="p-choose">
+            <a href="javascript:;" class="change-num" id="add_num">+</a>
+            <input type="text" class="p-num" placeholder="投放数量">
+            <a href="javascript:;" class="change-num" id="min_num">-</a>
+        </div>
+        <div class="rate-box">
+            <input type="text" class="rate" placeholder="日转化率：不限">
+            <i>%</i>
+        </div>
+        <p>限制进店人数<b>不限人</b></p>
+    </li>
+    <li></li>
+    <li></li>
+      <li>
+        <p class="date-day">25</p>
+        <div class="p-choose">
+            <a href="javascript:;" class="change-num" id="add_num">+</a>
+            <input type="text" class="p-num" placeholder="投放数量">
+            <a href="javascript:;" class="change-num" id="min_num">-</a>
+        </div>
+        <div class="rate-box">
+            <input type="text" class="rate" placeholder="日转化率：不限">
+            <i>%</i>
+        </div>
+        <p>限制进店人数<b>不限人</b></p>
+    </li>
+</body>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script>
+var lis = $('li');
+
+for (var i = 0; i < $('li').length; i++) {
+
+    if ($(lis[i]).html() != '') {
+        console.log("不为空");
+    } else {
+        console.log("为空");
+    }
+
+}
+/*if ($('#box').html() != '') {
+    console.log("不为空")
+} else {
+    console.log("为空")
+}
+
+console.log($('li#box').is(":empty"));*/
+</script>
+
+</html>

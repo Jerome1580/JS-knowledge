@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      #box{}
+      #box::before{
+      	content: '('attr(data-content)'666)';
+
+      }
+      #box::after{
+      	content: attr(data-content1);
+
+      }
+	</style>
+</head>
+<body>
+<p id="box" data-content="这是" data-content1="的儿子">你好</p>
+	
+</body>
+<script>
+  var box = document.querySelector('#box');
+  
+
+</script>
+</html>

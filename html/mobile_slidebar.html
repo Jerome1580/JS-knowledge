@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width
+=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-
+scalable=no">
+    <meta name="apple-mobile-web-app-title" content="标题">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="apple-mobile-web-
+app-status-bar-style" content="white-translucent">
+    <meta name="apple-
+mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/mobile_reset.css">
+    <link rel="stylesheet" href="../css/center.css">
+    <link rel="stylesheet" href="../css/ceshi.css">
+    <title>个人中心</title>
+    <script>
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            html.style.fontSize = windowWidth / 7.5 + 'px';
+            // 等价于html.style.fontSize = windowWidth / 750 * 100 + 'px';
+        }, false);
+    })();
+
+
+    // 这个7.5就是根据设计稿的横向宽度来确定的，假如你的设计稿是640
+    // 那么 html.
+    </script>
+ </head>
+
+<body>
+    <!-- 侧滑导航根容器 -->
+    <div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+        <!-- 菜单容器 -->
+        <aside class="mui-off-canvas-right">
+            <div class="mui-scroll-wrapper ">
+                <div class="mui-scroll">
+                    <!-- 菜单具体展示内容 -->
+                    <div class='choose-pannel'>
+                        <div class="scroll-container">
+                            <div class='shop-type fliter'>
+                                <p>店铺类型</p>
+                                <ul>
+                                    <li class="selected">不限</li>
+                                    <li>淘宝</li>
+                                    <li>天猫</li>
+                                </ul>
+                            </div>
+                            <div class="try fliter">
+                                <p>试用类型</p>
+                                <ul>
+                                    <li>不限</li>
+                                    <li>普通试用</li>
+                                    <li>兑换试用</li>
+                                    <li>追赏试用</li>
+                                </ul>
+                            </div>
+                            <div class="carriage fliter">
+                                <p>邮费类型</p>
+                                <ul>
+                                    <li>不限</li>
+                                    <li>包邮</li>
+                                    <li>付邮</li>
+                                </ul>
+                            </div>
+                            <div class="try-num fliter">
+                                <p>试用数量</p>
+                                <ul>
+                                    <li>不限</li>
+                                    <li>限量</li>
+                                    <li>海量</li>
+                                </ul>
+                            </div>
+                            <div class="product-type fliter">
+                                <p>商品类型</p>
+                                <ul>
+                                    <li>不限</li>
+                                    <li>高价值</li>
+                                    <li>高中奖率</li>
+                                    <li>新品</li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class='operate'>
+                        <a href="#" class="reset">重置</a>
+                        <a href="#" class="commit"> 完成</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- 主页面容器 -->
+        <div class="mui-inner-wrap">
+            <!-- 主页面标题 -->
+            <header class="mui-bar mui-bar-nav">
+                <ul>
+                    <li class="selected">人气</li>
+                    <li>上线时间</li>
+                    <li>剩余份数</li>
+                    <li>价格</li>
+                    <li class="choose">筛选</li>
+                </ul>
+                <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left choose" href=""><img src="../img/all_icon_screen_default@2x.png" alt=""></a>
+            </header>
+            <div class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!-- 主界面具体展示内容 -->
+                    <ul>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                        <li>你好</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/mui.js"></script>
+<script src='../js/ceshi.js'></script>
+<script>
+
+</script>
+<script>
+var gallery = mui('.mui-slider');
+gallery.slider({
+    interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+
+});
+</script>
+
+</html>

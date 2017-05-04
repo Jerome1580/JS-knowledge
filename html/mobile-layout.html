@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>移动端布局</title>
+</head>
+
+<body>
+    <script>
+    function uniqueArry() {
+        var random_arr = [];
+        for (var i = 0;; i++) {
+            var num = Math.floor(Math.random() * 30);
+
+            if (random_arr.indexOf(num) < 0) {
+                random_arr.push(num);
+            }
+
+            if (random_arr.length > 4)
+                return random_arr;
+        }
+    }
+
+
+    function uniqueArry() {
+
+        var random_arr = [];
+        while (random_arr.length > 4) {
+            var num = Math.floor(Math.random() * 29);
+            if (random_arr.indexOf(num) < 0) {
+                random_arr.push(num);
+            }
+        }
+
+        return random_arr;
+
+    }
+
+
+
+    console.log(uniqueArry());
+
+    var date = new Date(Date.parse('2017,9,9'));
+    console.log(date);
+    console.log(date.getDay());
+    </script>
+
+</html>

@@ -1,0 +1,48 @@
+.mui-bar >ul >li{
+
+	font-size: 0.28rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	float: left;
+	text-align: center;
+	margin-right: 0.5rem;
+	position:relative;
+}
+
+.mui-bar >ul >li.selected{
+	color:red;
+}
+
+
+
+.mui-bar >ul >li::after{
+	content:'';
+	width:0;
+	height:0;
+	border-left: 0.08rem solid transparent;
+	border-right: 0.08rem solid transparent;
+	border-top: 0.11rem solid red;
+
+	position: absolute;
+	top:0.4rem;
+	right:-0.2rem;
+
+}
+
+.mui-bar >ul >li:last-child::after{
+	content:'';
+	width:0;
+	height:0;
+	border: 0;
+ 
+}
+ 
+.mui-bar >ul >li:last-child{
+
+	margin-left: 0.5rem;
+	margin-right:0;
+}
+ 
+.mui-icon-bars:before{
+	content:'';
+}

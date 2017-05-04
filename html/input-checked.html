@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="radio" checked="checked" value="1" name="sex">男生
+    <input type="radio" value="2" name="sex">女生
+</body>
+<script src="../js/jquery-1.10.2.js"></script>
+<script>
+
+$('input[type="radio"]').on('click',function(){
+  console.log($('input[type="radio"]:checked').val());
+})
+</script>
+
+</html>

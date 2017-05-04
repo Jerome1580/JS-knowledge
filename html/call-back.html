@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+var a={'num':0};
+
+function box1(a) {
+   a.num = 1;
+}
+
+function box2(a) {
+    console.log(a.num);
+}
+box1(a);
+box2(a);   //1,因为a是对象，存储在内存堆中
+
+/*--------------------------*/
+
+var b='';
+
+function box3(b) {
+
+    b = 1;
+
+}
+
+function box4(b) {
+    console.log(b);
+}
+box3(b);
+box4(b);   //undefined，b是字符串，存储在栈，应该是box1执行完后就释放b的
+
+
+/*----------------------------*/
+var c = true;
+
+function box5(c) {
+    c = false;
+
+}
+function box6(c) {
+    console.log(c);
+}
+ 
+box5(c);
+box6(c);  //
+
+</script>
+
+</html>

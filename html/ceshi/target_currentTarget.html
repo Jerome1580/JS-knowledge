@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+</head>
+<style>
+#box{
+	width: 1100px;
+	height: 700px;
+	background-color: red;
+}
+
+.main{
+	width: 100px;
+	height: 100px;
+	background-color: white;
+}
+
+
+</style>
+
+<body>
+    <ul id="box">
+        <li class="main">这是点击的li</li>
+        <li class="main">这是点击的li2</li>
+        <li class="main">这是点击的li3</li>
+    </ul>
+</body>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+// console.log(1);
+/* $('.main').on('click', function(e) {
+     console.log(e.target); 
+     console.log(e.currentTarget);
+
+ });*/
+
+  /*$('#box').on('click','.main',function(e) {
+     console.log(this);
+     console.log(e.target); 
+     console.log(e.currentTarget);
+
+ });*/
+
+/*$('#box').on('click',function(e){
+
+	console.log(e.target);
+	console.log(e.currentTarget);
+})*/
+
+$('#box').on('click',function(e){
+
+	console.log(e.target);
+	console.log(e.currentTarget);
+	console.log(this);
+})
+
+
+</script>
+
+</html>
