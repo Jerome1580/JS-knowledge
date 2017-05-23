@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+var arr = ['aa','aee',4];
+for(var i in arr){
+	console.log(arr[i])
+}
+
+
+var str = '12345';
+var output = Array.prototype.map.call(str, function(x) {
+  return x;
+}).reverse().join('');
+console.log(output);//54321
+
+
+
+</script>
+</html>

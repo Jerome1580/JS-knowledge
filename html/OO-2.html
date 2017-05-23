@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 组合继承，原型链继承原型属性和方法，借用继承实例属性
+
+function a(name,age){
+	this.name = name;
+	this.age = age;
+}
+
+a.prototype.getName = function(){
+	alert(this.name);
+}
+
+function b(name,age){
+	a.call(this,name,age)
+}
+
+b.prototype = new a();
+
+var temp = new b("张三丰",100);
+
+var temp2 = new b("李小路",18);
+
+
+console.log(temp.getName())
+console.log(temp2.getName())
+
+
+</script>
+</html>

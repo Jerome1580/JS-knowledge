@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>you dont need jquery</title>
+</head>
+
+<body>
+</body>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script>
+var arr = [2, 3, 4, 5, 6];
+arr.indexOf(4);
+
+function sum(num1, num2) {
+    console.log(num1 + num2);
+
+}
+
+function dec(a, b) {
+    sum.call(this, a, b)
+    sum.apply(this,a,b)
+}
+
+dec(1, 2);
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+// 借用继承，在子类的构造函数内部调用超类构造函数
+
+function a(){
+	this.color = "red";
+}
+
+a.prototype.getColor = function(){
+	alert(this.color);
+}
+
+function b(){
+	a.call(this);
+
+}
+
+
+var temp = new b();
+console.log(temp)  
+console.log(temp.color)  
+console.log(temp.getColor())  //找不到
+
+
+</script>
+</html>

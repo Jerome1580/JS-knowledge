@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 原型链继承
+
+function a(){
+	this.color = "red";
+}
+
+a.prototype.getColor = function(){
+	alert(this.color);
+}
+
+function b(){
+	this.color = "blue"
+
+}
+
+b.prototype = new a();
+
+var temp = new b();
+console.log(temp)
+temp.getColor()
+
+
+
+
+</script>
+</html>
