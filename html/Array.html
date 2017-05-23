@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box active">3</div>
+    <div class="box">4</div>
+</body>
+<script>
+/*var object = {0:"张三",1:"李四",2:"王五",3:"赵六",length:4};
+   var object1 = {0:"1",1:"7",2:"2",3:"9",length:4};
+   var  arr = Array.prototype.slice.call(object1);
+   console.log(arr)
+   var bb = Array.prototype.sort.call(arr);
+   console.log(bb)
+   
+
+
+   console.log(Array.isArray(arr));
+
+
+   var o = {0:"cat",1:"dog",2:"mimi",3:"chicken",length:4};
+   console.log(o)
+   var b = Array.prototype.pop.call(o);
+   console.log(b);
+*/
+
+var arr = document.querySelectorAll('.box');
+// var arr2 = {'name':'111','age':'222','sex':'333',length:3};   不是类数组
+var a = {
+        '0': 'a',
+        '1': 'b',
+        '2': 'c',
+        length: 3
+    } //类数组
+
+
+// 如果某一个集合包含了选中的类，则去除
+/*
+arr.forEach(function(value, index, arr) {
+    if (arr[index].classList.contains('active'))
+        arr[index].classList.remove('box');
+
+})*/
+
+// 转化数组的方法
+/*var arr3 = Array.prototype.slice.call(a);
+console.log(arr3);*/
+
+var arr00 = {'0':1,'1':33,'2':45,'3':2,length:4}
+var result0 = Array.prototype.forEach.call(arr00, function(value, index, arr2) {
+    console.log(value + 1);
+})
+
+
+var arr11 = {'0':1,'1':33,'2':45,'3':2,length:4}
+var result = Array.prototype.every.call(arr11,function(value,index,arr){
+	return value > 0;
+})
+
+console.log(result)  //true
+
+
+var arr22 = {'0':1,'1':33,'2':45,'3':2,length:4}
+var result1 = Array.prototype.some.call(arr22,function(value,index,arr){
+	return value > 45;
+})
+
+console.log(result1)  //false
+
+
+var arr33 = {'0':1,'1':33,'2':45,'3':2,length:4}
+var result2 = Array.prototype.filter.call(arr33,function(value,index,arr){
+	return value > 1;
+})
+
+console.log(result2)  //[33,45,2]
+
+
+var arr44 = {'0':1,'1':33,'2':45,'3':2,length:4}
+var result2 = Array.prototype.map.call(arr44,function(value,index,arr){
+	return value+1;
+})
+
+console.log(result2)  //[2,34,46,3]
+
+
+
+</script>
+
+</html>
