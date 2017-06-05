@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+	
+</body>
+<script>
+  function D(){
+  	this.name = "zhangsan";
+  	this.age = 12;
+  }
+
+// 用字面量的形式给原型赋值，会导致原型的指给了另一个object，也即改变了prototype的constructor指针
+ /* D.prototype = {
+  	getName:function(){
+  		alert(this.name);
+  	},
+
+  	showAge:function(){
+  		console.log(this.age);
+  	}
+  }
+*/
+
+  // 用以下形式就不会改变prototype，prototype的constructor指针指回D
+  D.prototype.getName = function(){
+      alert(this.name);
+  }
+
+   D.prototype.showAge = function(){
+      console.log(this.age);
+  }
+
+  console.log(D)
+  console.log(D.prototype)
+  console.log(D.prototype.constructor)
+
+
+  
+  function B(){
+    D.apply(this)
+  }
+
+  B.prototype = new D();
+
+  B.prototype.constructor = B;
+
+
+
+  var box = new B();/*
+  console.log(D.prototype)
+  console.log(D.prototype.constructor)*/
+
+</script>
+</html>

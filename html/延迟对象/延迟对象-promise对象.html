@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+
+<body>
+    <div id="box">你好</div>
+</body>
+<script src="../../js/jquery-1.11.0.min.js"></script>
+<script>
+/**
+ * def是一个全局对象，所以它的执行状态可以从外部改变。
+ *
+ */
+
+
+　
+var def = $.Deferred(); // 新建一个Deferred对象
+　　
+var wait = function(def) {　　　　
+    var tasks = function() {　　　　　　
+        alert("执行完毕！");　　　　　　
+        def.resolve(); // 改变Deferred对象的执行状态
+        　　　　
+    };　　　　
+    setTimeout(tasks, 5000);　　　　
+    return def;　　
+};　　
+$.when(wait(def))　　
+.done(function() {
+    alert("哈哈，成功了！");
+})　　
+.fail(function() {
+    alert("出错啦！");
+});　
+　
+def.resolve();
+
+
+/**
+ * 上述代码可以在全局改变deferred的对象的执行状态,延迟对象被立刻更改resolve状态，不好，，可以修改为下面的
+ *
+ * 为了避免这种情况，jQuery提供了deferred.promise()方法。它的作用是，在原来的deferred对象上返回另一个deferred对象，后者只开放与改变执行状态无关的方法（比如done()方法和fail()方法），屏蔽与改变执行状态有关的方法（比如resolve()方法和reject()方法），从而使得执行状态不能被改变。
+ */
+
+　　
+var dtd = $.Deferred(); // 新建一个Deferred对象
+　　
+var wait = function(dtd) {　　　　
+    var tasks = function() {　　　　　　
+        alert("执行完毕！");　　　　　　
+        dtd.resolve(); // 改变Deferred对象的执行状态
+        　　　　
+    };
+
+    　　　　
+    setTimeout(tasks, 5000);　　　　
+    return dtd.promise(); // 返回promise对象
+    　　
+};　　
+var d = wait(dtd); // 新建一个d对象，改为对这个对象进行操作
+　　
+$.when(d)
+    .done(function() {
+        alert("哈哈，成功了！");
+    })
+    .fail(function() {
+        alert("出错啦！");
+    });　　
+d.resolve(); // 此时，这个语句是无效的
+
+
+/**
+ * wait()函数返回的是promise对象。然后，我们把回调函数绑定在这个对象上面，而不是原来的deferred对象上面。这样的好处是，无法改变这个对象的执行状态，要想改变执行状态，只能操作原来的deferred对象。
+ */
+
+
+
+
+/**
+ * 更好的写法是allenm所指出的，将dtd对象变成wait(）函数的内部对象。
+ */
+
+var wait = function(dtd) {　　　　
+    var dtd = $.Deferred(); //在函数内部，新建一个Deferred对象
+    　　　　
+    var tasks = function() {　　　　　　
+        alert("执行完毕！");　　　　　　
+        dtd.resolve(); // 改变Deferred对象的执行状态
+        　　　　
+    };
+
+    　　　　
+    setTimeout(tasks, 5000);　　　　
+    return dtd.promise(); // 返回promise对象
+    　　
+};　　
+
+$.when(wait())　　
+.done(function() {
+    alert("哈哈，成功了！");
+})　　
+.fail(function() {
+    alert("出错啦！");
+});
+
+/**
+ * 另一种防止执行状态被外部改变的方法，是使用deferred对象的建构函数$.Deferred()。
+ * 这时，wait函数还是保持不变，我们直接把它传入$.Deferred()：
+ */
+
+$.Deferred(wait)
+　　.done(function(){ alert("哈哈，成功了！"); })
+　　.fail(function(){ alert("出错啦！"); });
+</script>
+
+</html>
