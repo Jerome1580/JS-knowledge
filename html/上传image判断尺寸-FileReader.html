@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="img">
+    <img src="" id="preview" alt="">
+</body>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script>
+
+
+$(function(){  
+    $("#img").change(function(){  
+        var file = this.files[0];  
+        console.log("文件大小:"+(file.size / 1024).toFixed(1)+"kB");  
+        if (window.FileReader) {  
+            var reader = new FileReader();  
+
+            reader.readAsDataURL(file);  
+            //监听文件读取结束后事件     
+            reader.onload = function (e) { 
+  				console.log(e);
+                showXY(e.target.result);  
+            };  
+        }  
+    });  
+
+function showXY(source){  
+    var img = document.getElementById("preview");  
+    img.src = source;  
+    img.onload = function(){
+    	console.log("Width:"+img.width+", Height:"+img.height);  
+    }
+    
+}  
+
+});  
+
+
+</script>
+
+</html>
