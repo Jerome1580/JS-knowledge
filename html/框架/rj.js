@@ -130,7 +130,54 @@ $$.extend($$, {
         if (fnOut) {
             this.on(id, "mouseout", fnOut);
         }
-    }
+    },
+    /*获取event对象*/
+    getEvent:function(e){
+        return e?e:window.event;
+    },
+    
+    /*获取目标元素*/
+    getTarget:function(e){
+        var e = $$.getEvent(e);
+        return e.target || e.srcElement;
+    },
+
+    /*阻止默认行为*/
+    preventDefault:function(e){
+        var event = $$.getEvent(event);
+        if(event.preventDefault){
+            event.preventDefault();
+        }else{
+            event.returnValue = false;
+        }
+    },
+
+    /*阻止冒泡*/
+    stopPropagation:function(event){
+        var event = $$.getEvent(event);
+        if(event.stopPropagation){
+            event.stopPropagation();
+        }else{
+            event.cancelBubble = true;
+        }
+    },
+    //事件委托
+    delegate:function (pid, eventType, selector, fn) {
+        //参数处理
+        var parent = $$.$id(pid);
+        function handle(e){
+            var target = $$.getTarget(e);
+            if(target.nodeName.toLowerCase()=== selector || target.id === selector || target.className.indexOf(selector) != -1){
+                // 在事件冒泡的时候，回以此遍历每个子孙后代，如果找到对应的元素，则执行如下函数
+                // 为什么使用call，因为call可以改变this指向
+                // 大家还记得，函数中的this默认指向window，而我们希望指向当前dom元素本身
+                fn.call(target);
+            }
+        }
+        //当我们给父亲元素绑定一个事件，他的执行顺序：先捕获到目标元素，然后事件再冒泡
+        //这里是是给元素对象绑定一个事件
+        parent[eventType]=handle;
+    },
 
 })
 

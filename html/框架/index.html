@@ -17,8 +17,8 @@
 </body>
 <script src="rj.js"></script>
 <script>
-	$$.on("box",'click',function(){
-		this.style.backgroundColor ="red";
+	$$.on("box",'click',function(e){
+		$$.getTarget(e).style.backgroundColor ="red";
 	})
 </script>
 </html>
