@@ -15,10 +15,17 @@
 <div id="box"></div>
 	
 </body>
-<script src="rj.js"></script>
+<script src="../../js/rj.js"></script>
 <script>
 	$$.on("box",'click',function(e){
+		// $$.sleep(3000);
 		$$.getTarget(e).style.backgroundColor ="red";
+		var box =function(){
+			    $$.sleep(3000);
+				console.log(1+1);
+		}
+
+		$$.logTime(box)();
 	})
 </script>
 </html>

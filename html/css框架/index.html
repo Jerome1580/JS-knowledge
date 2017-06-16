@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+div {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+</style>
+
+<body>
+    <div id="box">
+        <p>你好</p>
+        <p>你好</p>
+        <span>dasda</span>
+    </div>
+</body>
+<script src="../../js/rj.js"></script>
+<script>
+
+   var doms = $$.$tag('p');
+
+   setStyle(doms,'color','red');
+
+   function setStyle(doms,key,value) {
+   		for (var i = 0; i < doms.length; i++) {
+   			doms[i].style[key] = value;
+   		}
+   }
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+window.onload = function() {
+    var box = function() {
+
+        var a = 1,
+            b = 2;
+        // sleep(3000)
+        console.log(a + b);
+    };
+
+    box.before=function() {
+        console.log(666);
+    };
+
+    box.before();
+
+}
+
+
+
+//模拟一个复杂函数 需要执行很多时间
+function sleep(time) {
+    var now = +new Date();
+    while (true) {
+        if (new Date() - now > time) {
+            break;
+        }
+    }
+}
+</script>
+
+</html>
