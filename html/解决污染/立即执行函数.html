@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+
+
+
+(function(w) {
+
+    var age = 1;
+    var sex = '男';
+
+    var add = function(age, sex) {
+        console.log(age + sex);
+
+    }
+
+    w.getFn1 = {
+        'age': age,
+        'sex': sex,
+        add: add
+    }
+})(window);
+
+
+
+(function(w) {
+		console.log(w.getFn1.age);
+    	w.getFn1.add(w.getFn1.age,w.getFn1.sex);
+})(window)
+
+</script>
+
+</html>

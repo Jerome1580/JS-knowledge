@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+var my = (function(w) {
+
+    var age = 1;
+    var sex = '男';
+    var name ='小明';
+
+
+    return {
+        add :function(age, sex) {
+            console.log(age + sex);
+
+        }
+    }
+
+})(window);
+
+
+
+(function(w) {
+    my.add(1, 2);
+})(window)
+</script>
+
+</html>
