@@ -1,18 +1,6 @@
-
-/**
- * 1、未包含 链式访问  在每个属性、方法里面后面加一个return
- * 2、新增一个 this.elements 来储存选择器 选择的元素，之后在改造
- * ------------------------
- * 改造了一个 $id()  和 html() 方法 ，可以参考
- *
- */
-(function(w){
-
-    var $$ = function() {
-        this.init();
-        //  this.elements = [];   链式访问+this.element
+var $$ = function() {
+    this.init();
 }
-
 
 $$.prototype = {
     extend: function(tar, source) {
@@ -22,11 +10,11 @@ $$.prototype = {
         return tar;
     },
     init: function() {
-        this.fnExtend(),
-        this.strExtend(),
-        this.arrayExtend(),
-        this.DateExtend(),
-        this.numExtend();
+        this.fnExtend()
+        this.strExtend()
+        this.arrayExtend()
+        this.DateExtend()
+        this.numExtend()
     },
     //函数扩展
     fnExtend: function() {
@@ -60,7 +48,7 @@ $$.prototype = {
     DateExtend: function() {},
     //数字扩展
     numExtend: function() {}
-
+    
 
 }
 
@@ -132,9 +120,6 @@ $$.extend($$, {
 $$.extend($$, {
     $id: function(id) {
         return document.getElementById(id);
-
-        //  this.elements.push(document.getElementById(id));   链式访问+this.element
-        //  return this;
     },
     // tag选择器  标签选择器
     $tag: function(tag, context) {
@@ -287,6 +272,7 @@ $$.extend($$, {
 $$.extend($$, {
     //样式
     css: function(context, key, value) {
+        console.log('dfdfd')
         var dom = $$.isString(context) ? $$.$all(context) : context;
         //如果是数组
         if (dom.length) {
@@ -480,10 +466,8 @@ $$.extend($$, {
 /*内容框架*/
 $$.extend($$,{
     //innerHTML的函数版本
-    html: function(context,value) {
+    html: function(context, value) {
         var doms = $$.$all(context);
-
-        // var doms = this.elements;   链式访问 + this.element
         //设置
         if (value) {
             for (var i = 0, len = doms.length; i < len; i++) {
@@ -838,10 +822,3 @@ $$.extend($$,{
 }
 
 })
-
-
-    w.$$ = $$;
-
-})(window)
-
-

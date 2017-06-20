@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
 <style>
-		div{
-			width: 100px;
-			height: 100px;
-			background-color: blue;
-		}
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
 </style>
 <body>
 <div id="box"></div>
-	
+
 </body>
 <script src="../../js/rj.js"></script>
 <script>
-	$$.on("box",'click',function(e){
-		// $$.sleep(3000);
-		$$.getTarget(e).style.backgroundColor ="red";
-		var box =function(){
-			    $$.sleep(3000);
-				console.log(1+1);
-		}
+    $$.on("box", 'click', function (e) {
+        // $$.sleep(3000);
+        $$.getTarget(e).style.backgroundColor = "red";
+        var box = function () {
+            $$.sleep(3000);
+            console.log(1 + 1);
+        }
 
-		$$.logTime(box)();
-	})
+        $$.logTime(box)();
+    })
+
 </script>
 </html>
