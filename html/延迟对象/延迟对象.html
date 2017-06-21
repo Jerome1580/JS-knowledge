@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>String</title>
+    <meta charset="UTF-8">
+    <title>String</title>
 </head>
 <body>
 <div id="box">你好</div>
@@ -11,37 +11,47 @@
 <script src="../../js/jquery-1.11.0.min.js"></script>
 <script>
 
-/**
- * jQuery规定，deferred对象有三种执行状态----未完成，已完成和已失败。如果执行状态是"已完成"（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是"已失败"，调用fail()方法指定的回调函数；如果执行状态是"未完成"，则继续等待，或者调用progress()方法指定的回调函数
- *
- *
- * 在wait()函数中，这个执行状态必须由程序员手动指定。dtd.resolve()的意思是，将dtd对象的执行状态从"未完成"改为"已完成"，从而触发done()方法.
- * 
- * 当然也有dtd.reject()方法手动调整失败
- */
+    /**
+     * jQuery规定，deferred对象有三种执行状态----未完成，已完成和已失败。如果执行状态是"已完成"（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是"已失败"，调用fail()方法指定的回调函数；如果执行状态是"未完成"，则继续等待，或者调用progress()方法指定的回调函数
+     *
+     *
+     * 在wait()函数中，这个执行状态必须由程序员手动指定。dtd.resolve()的意思是，将dtd对象的执行状态从"未完成"改为"已完成"，从而触发done()方法.
+     *
+     * 当然也有dtd.reject()方法手动调整失败
+     */
 
+    //创建延迟对象
+    var def = $.Deferred();
+    console.log(def)
 
-var def = new $.Deferred();
-console.log(def)
+    //把延迟对象传进去
+    function wait(def) {
 
-function wait(def){
+        var timer = function () {
+            console.log("执行完毕");
+            //更改状态
+            def.reject();
+        }
+        setTimeout(timer, 5000)
 
-  var timer = function(){
-    console.log("执行完毕");
-    def.reject();
-  }
+        //返回延迟对象
+        return def.promise();
+    }
 
-  setTimeout(timer,5000)
+    // 返回的promise对象
+    var d = wait(def);
 
-  return def;
-}
+    $.when(d)
+            .done(function () {
+                console.log("回调成功执行！")
+            })
+            .fail(function () {
+                console.log("回调执行失败！")
+            })
+            .always(function () {
+                console.log("无论怎样都执行")
+            })
 
-$.when(wait(def))
-.done(function(){console.log("回调成功执行！")})
-.fail(function(){console.log("回调执行失败！")})
-
-
-  
 
 </script>
 </html>
