@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <body>
+
+    </body>
+   
+    <script>
+    // 人类
+    function Product(obj={}) {
+
+        this.name = obj.name;
+        this.age = obj.age;
+        this.sex = obj.sex;
+
+    }
+
+    Product.prototype = {
+        sing: function() {
+            var _this = this
+            console.log(_this.name);
+        },
+        laugh: function() {
+            var _this = this
+            _this.sing();
+            console.log(_this.age);
+        }
+    }
+    // 职业
+    function Job(obj={}) {
+
+        this.type = obj.type;
+        this.object = obj.object;
+
+    }
+
+    Job.prototype = {
+        showJob:function() {
+            
+            console.log('她是'+this.type+'老师'+'  '+'她的课程是'+this.object);
+        }
+    }
+
+    // 女性
+    function Women(obj) {
+        Product.call(this, obj)
+        Job.call(this, obj)
+        this.baby = obj.baby;
+    }
+
+   
+    Women.prototype.constructor = Women;
+
+    Women.prototype.hasBaby = function() {
+
+        console.log(this.baby)
+
+    }
+
+    function extend(){
+           
+
+        for(i=0;i<arguments.length;i++){
+
+            var base = new arguments[i]();
+            for(var k in base)
+            Women.prototype[k] = base[k]
+        }
+
+    }
+
+    extend(Product,Job);
+
+
+    var obj = {
+        name: '小慧',
+        age: 26,
+        sex: '女',
+        baby: '壮壮',
+        type:'老师',
+        object:'英语'
+    }
+
+    var person = new Women(obj);
+
+
+    console.log(person)
+    person.laugh();
+    person.hasBaby();
+    person.showJob();
+    </script>
+    <script>
+    function a(name, age) {
+        this.name = name;
+        this.age = age;
+
+    }
+    a.prototype.getName = function() {
+        alert(this.name);
+    }
+
+    function b(name, age) {
+        a.call(this, name, age)
+    }
+
+    b.prototype = new a();
+    //b.prototype.constructor指向a,会导致继承链的紊乱
+    b.prototype.constructor = b;
+    //（temp明明是用构造函数b生成的），因此我们必须手动纠正
+    var temp = new b("张三丰", 100);
+    var temp2 = new b("李小路", 18);
+    console.log(temp)
+    console.log(temp.getName())
+    </script>
+
+</html>
