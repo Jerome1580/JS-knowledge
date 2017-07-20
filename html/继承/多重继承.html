@@ -116,5 +116,29 @@
     console.log(temp)
     console.log(temp.getName())
     </script>
+    <script>
+        //以前我们是怎么来写继承的：
+
+        function Programmer(name) {
+            Animal.call(this, name);
+        }
+
+        Programmer.prototype = Object.create(Animal.prototype, {
+            program: {
+                value: function() {
+                    console.log("I'm coding...");
+                }
+            },
+            sleep: {
+                value: function() {
+                    console.log('Save all files.');
+                    console.log('Get into bed.');
+                                    Animal.prototype.sleep.apply(this, arguments);
+                }
+            }
+        });
+
+        Programmer.prototype.constructor = Programmer;
+    </script>
 
 </html>
